@@ -73,7 +73,7 @@ export default function Hero() {
 
                         <p className="max-w-md text-sm md:text-base leading-relaxed text-foreground/50 font-light tracking-wide">
                             I am kayaos, a developer who loves creating anything new and exploring technologies.
-                            Based in Tokyo, I specialize in building high-performance systems and modern digital solutions.
+                            Based in BUKIDNON, PHILIPPINES, I specialize in building high-performance systems and modern digital solutions.
                         </p>
 
                     </div>

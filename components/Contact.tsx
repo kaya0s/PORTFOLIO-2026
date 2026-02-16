@@ -71,7 +71,7 @@ export default function Contact() {
                             </a>
                         </div>
                         <p className="text-xs uppercase tracking-[0.3em] text-foreground/30">
-                            Tokyo, Japan / Remote
+                            BUKIDNON, PHILIPPINES / Remote
                         </p>
                     </div>
                 </div>

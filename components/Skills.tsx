@@ -11,14 +11,14 @@ const skillCategories = [
         title: "Web Systems",
         icon: <Layers size={20} />,
         description: "Building high-performance, responsive digital ecosystems with a focus on core logic and speed.",
-        skills: ["React / Next.js", "TypeScript", "Tailwind CSS", "GraphQL", "Zustand"],
+        skills: ["React / Next.js", "TypeScript", "Tailwind CSS", "RESTful API", "Zustand"],
     },
     {
         id: "02",
-        title: "Intelligence",
+        title: "Machine Learning",
         icon: <Eye size={20} />,
-        description: "Exploring the boundaries of AI/ML, implementing models that process and understand the real world.",
-        skills: ["Python", "PyTorch", "Computer Vision", "NLP", "LLM Integration"],
+        description: "Specializing in computer vision applications using YOLO and Python-based notebook development.",
+        skills: ["Python", "YOLO", "Computer Vision", "Jupyter Notebooks", "OpenCV"],
     },
     {
         id: "03",

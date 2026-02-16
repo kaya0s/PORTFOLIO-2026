@@ -46,12 +46,6 @@ export default function About() {
                     >
                         <div className="absolute inset-0 japanese-grid opacity-10" />
 
-                        <img
-                            src="/images/about-visual.png"
-                            alt="Process"
-                            className="absolute inset-0 h-full w-full object-cover opacity-50 group-hover:opacity-100 grayscale group-hover:grayscale-0 transition-all duration-1000"
-                        />
-
                         <span className="relative z-10 font-serif text-[18vw] opacity-[0.05] group-hover:opacity-0 transition-opacity duration-500 select-none">新</span>
 
                         {/* Minimalist Floating Elements */}

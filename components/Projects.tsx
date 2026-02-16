@@ -8,43 +8,53 @@ import ProjectModal from "./ProjectModal";
 const projects = [
     {
         id: 1,
-        title: "Zenith OS",
-        category: "Web Application",
-        description: "A desktop-class operating system interface built entirely for the web.",
-        longDescription: "Zenith OS is a sophisticated web-based desktop environment that showcases high-performance React patterns. It includes a window manager, file system abstraction, and a suite of productivity tools, all designed with a minimal glassmorphism aesthetic.",
-        image: "/images/project1.jpg",
-        tech: ["Next.js", "Tailwind", "Framer Motion", "Zustand"],
-        features: ["Window management system", "Real-time collaboration", "Custom file explorer", "Dynamic terminal emulator"],
+        title: "TeachTrack",
+        category: "Machine Learning",
+        description: "A Classroom Behavior Detection System designed to help educators monitor student engagement and behavior in real-time using machine learning.",
+        longDescription: "TeachTrack is an advanced AI-powered system that uses computer vision to analyze student engagement and behavior patterns in classroom environments. It provides real-time insights to educators, helping them identify students who may need additional attention or support.",
+        image: "",
+        tech: ["Python", "TensorFlow", "OpenCV", "React", "FastAPI"],
+        features: ["Real-time behavior analysis", "Student engagement tracking", "Alert system for educators", "Dashboard analytics"],
     },
     {
         id: 2,
-        title: "Kintsugi AI",
-        category: "Machine Learning",
-        description: "An AI-powered restoration tool for vintage ceramics and art pieces.",
-        longDescription: "Kintsugi AI uses custom-trained Generative Adversarial Networks (GANs) to predict and visualize the restoration of broken objects. It takes inspiration from the Filipino art of pottery restoration, turning repairs into beautiful, highlighted features of the object.",
-        image: "/images/project2.jpg",
-        tech: ["Python", "PyTorch", "React", "FastAPI"],
-        features: ["Fracture detection", "Texture synthesis", "3D point cloud generation", "AR preview"],
+        title: "Mini-Jarvis",
+        category: "Automation Tool",
+        description: "A Python-based automation assistant designed to help with mini tasks.",
+        longDescription: "Mini-Jarvis is a intelligent automation assistant built with Python that helps users streamline their daily tasks through voice commands and automated workflows. It can handle various mini tasks from file management to web automation.",
+        image: "",
+        tech: ["Python", "Speech Recognition", "Natural Language Processing", "Automation"],
+        features: ["Voice command processing", "Task automation", "File management", "Web scraping capabilities"],
     },
     {
         id: 3,
-        title: "Haiku CMS",
-        category: "Developer Tool",
-        description: "The world's most minimalist headless CMS, structured like a haiku.",
-        longDescription: "Haiku CMS is built on the principle of 'less is more'. It provides a strictly curated set of features that force developers to write cleaner, more intentional code. It's designed for portfolios and small-scale creative projects.",
-        image: "/images/project3.jpg",
-        tech: ["TypeScript", "Node.js", "Redis", "SQLite"],
-        features: ["Strict 17-component limit", "Automatic SEO optimization", "Zero-config deployment", "Markdown-first workflow"],
+        title: "HJ Gownshop",
+        category: "Web Application",
+        description: "A web-based gown rental management system with user authentication, including Google OAuth and Paypal Sandbox integration.",
+        longDescription: "HJ Gownshop is a comprehensive gown rental platform that allows users to browse, select, and rent gowns for special occasions. The system features secure authentication, payment processing, and inventory management.",
+        image: "",
+        tech: ["PHP", "JavaScript", "MySQL", "Google OAuth", "PayPal API"],
+        features: ["User authentication", "Google OAuth integration", "PayPal Sandbox payments", "Inventory management"],
     },
     {
         id: 4,
-        title: "Mono Synth",
-        category: "Audio Engineering",
-        description: "A monophonic synthesizer with a focus on raw analog textures.",
-        longDescription: "Mono Synth is an experimental audio tool that leverages the Web Audio API to create authentic analog-sounding waves. It features a tactile interface inspired by classic Filipino musical instruments and traditional sounds.",
-        image: "/images/project4.jpg",
-        tech: ["Web Audio API", "Canvas", "React", "Tone.js"],
-        features: ["Virtual Voltage Control", "Real-time FFT visualization", "MIDI support", "Preset sharing"],
+        title: "Squidgame",
+        category: "Game Development",
+        description: "Red Light Green Light is an inspired project based on the famous Korean show with 4 players.",
+        longDescription: "Squidgame is a multiplayer game inspired by the popular Korean series, featuring the iconic Red Light Green Light challenge. Built with Java, it supports 4 simultaneous players with real-time gameplay mechanics.",
+        image: "",
+        tech: ["Java", "Swing", "Multiplayer Networking", "Game Physics"],
+        features: ["4-player multiplayer", "Real-time gameplay", "Red Light Green Light mechanics", "Score tracking"],
+    },
+    {
+        id: 5,
+        title: "HJ-EVENTS",
+        category: "Full-stack Application",
+        description: "A fullstack admin/client system for wedding booking and has 7 integrations with backups and others like emails payments.",
+        longDescription: "HJ-EVENTS is a comprehensive wedding booking management system that serves both administrators and clients. The platform features 7 different integrations including email services, payment gateways, and automated backup systems.",
+        image: "",
+        tech: ["MongoDB", "Express.js", "React", "Node.js", "Email API", "Payment Gateway"],
+        features: ["Admin dashboard", "Client booking system", "7 service integrations", "Automated backups", "Email notifications", "Payment processing"],
     },
 ];
 
@@ -73,7 +83,7 @@ export default function Projects() {
                         />
                     </div>
 
-                    {/* Right Bottom Column */}
+                    {/* Right Middle Column */}
                     <div className="md:col-span-4 overflow-hidden">
                         <ProjectCard
                             project={projects[2]}
@@ -82,11 +92,20 @@ export default function Projects() {
                         />
                     </div>
 
-                    {/* Bottom Full Wide Sub-Project */}
-                    <div className="md:col-span-12 overflow-hidden border-t border-foreground/5">
+                    {/* Bottom Left Project */}
+                    <div className="md:col-span-6 overflow-hidden border-t border-foreground/5">
                         <ProjectCard
                             project={projects[3]}
                             onClick={() => setSelectedProject(projects[3])}
+                            className="h-[250px] md:h-[300px]"
+                        />
+                    </div>
+
+                    {/* Bottom Right Project */}
+                    <div className="md:col-span-6 overflow-hidden border-t border-l md:border-t md:border-l-0 border-foreground/5">
+                        <ProjectCard
+                            project={projects[4]}
+                            onClick={() => setSelectedProject(projects[4])}
                             className="h-[250px] md:h-[300px]"
                         />
                     </div>

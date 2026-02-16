@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Outfit, Shippori_Mincho } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import GlobalCursorEffect from "@/components/GlobalCursorEffect";
 
 const sans = Outfit({
   variable: "--font-sans",
@@ -37,6 +38,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <div className="noise" />
+          <GlobalCursorEffect />
           {children}
         </ThemeProvider>
       </body>

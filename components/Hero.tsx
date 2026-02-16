@@ -5,40 +5,22 @@ import { useRef, useState, useEffect } from "react";
 
 export default function Hero() {
     const containerRef = useRef<HTMLDivElement>(null);
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start start", "end start"],
+        offset: ["start end", "end start"],
     });
 
-    const opacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
-    const scale = useTransform(scrollYProgress, [0, 1], [1, 0.8]);
-    const y = useTransform(scrollYProgress, [0, 1], [0, -150]);
+    const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
+    const opacity = useTransform(scrollYProgress, [0, 0.3, 1], [1, 0.5, 0]);
+    const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
     const imgY = useTransform(scrollYProgress, [0, 1], [0, 100]);
-
-    useEffect(() => {
-        const handleMouseMove = (e: MouseEvent) => {
-            setMousePosition({ x: e.clientX, y: e.clientY });
-        };
-        window.addEventListener("mousemove", handleMouseMove);
-        return () => window.removeEventListener("mousemove", handleMouseMove);
-    }, []);
 
     return (
         <section
             ref={containerRef}
             className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-background pt-20"
         >
-            {/* Ambient Mouse Glow */}
-            <motion.div
-                className="pointer-events-none absolute inset-0 z-0 opacity-20"
-                animate={{
-                    background: `radial-gradient(800px at ${mousePosition.x}px ${mousePosition.y}px, var(--color-accent) 0%, transparent 80%)`,
-                }}
-                transition={{ type: "tween", ease: "backOut", duration: 0.5 }}
-            />
-
             <div className="japanese-grid absolute inset-0 opacity-[0.03]" />
 
             {/* Background Name (Behind Photo) */}

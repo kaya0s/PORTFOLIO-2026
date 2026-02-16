@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Section from "./Section";
 import { motion, AnimatePresence } from "framer-motion";
-import { Send, Github, Linkedin, Mail } from "lucide-react";
+import { Send, Github, Linkedin, Mail, Instagram } from "lucide-react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -28,10 +28,16 @@ export default function Contact() {
         resolver: zodResolver(formSchema),
     });
 
-    const onSubmit = async (data: FormData) => {
-        // Simulate API call
-        await new Promise((resolve) => setTimeout(resolve, 1500));
-        console.log(data);
+    const onSubmit = (data: FormData) => {
+        // Create mailto link with form data
+        const subject = encodeURIComponent(`Portfolio Contact: ${data.name}`);
+        const body = encodeURIComponent(`Name: ${data.name}\nEmail: ${data.email}\n\nMessage:\n${data.message}`);
+        const mailtoLink = `mailto:erwin.lanzaderas@gmail.com?subject=${subject}&body=${body}`;
+        
+        // Open user's email client
+        window.location.href = mailtoLink;
+        
+        // Show success message
         setIsSubmitted(true);
         reset();
         setTimeout(() => setIsSubmitted(false), 5000);
@@ -52,19 +58,31 @@ export default function Contact() {
                     <div className="space-y-6">
                         <div className="flex items-center gap-6">
                             <a
-                                href="#"
+                                href="https://github.com/kaya0s"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="group flex h-12 w-12 items-center justify-center border border-foreground/10 transition-colors hover:border-accent"
                             >
                                 <Github size={20} className="text-foreground/40 transition-colors group-hover:text-accent" />
                             </a>
                             <a
-                                href="#"
+                                href="https://www.linkedin.com/in/erwin-lanzaderas-263812312/"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="group flex h-12 w-12 items-center justify-center border border-foreground/10 transition-colors hover:border-accent"
                             >
                                 <Linkedin size={20} className="text-foreground/40 transition-colors group-hover:text-accent" />
                             </a>
                             <a
-                                href="mailto:contact@kayaos.dev"
+                                href="https://www.instagram.com/yaosthegreat/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group flex h-12 w-12 items-center justify-center border border-foreground/10 transition-colors hover:border-accent"
+                            >
+                                <Instagram size={20} className="text-foreground/40 transition-colors group-hover:text-accent" />
+                            </a>
+                            <a
+                                href="mailto:erwin.lanzaderas@gmail.com"
                                 className="group flex h-12 w-12 items-center justify-center border border-foreground/10 transition-colors hover:border-accent"
                             >
                                 <Mail size={20} className="text-foreground/40 transition-colors group-hover:text-accent" />

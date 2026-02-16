@@ -36,8 +36,22 @@ export default function ProjectCard({ project, onClick, className }: ProjectCard
                     transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
                     className="h-full w-full bg-foreground/[0.02]"
                 >
-                    {/* Placeholder/Abstract Design */}
-                    <div className="flex h-full w-full items-center justify-center p-12">
+                    {/* Dynamic Image or Placeholder */}
+                    {project.image && project.image !== "/images/will-be-put-soon.jpg" ? (
+                        <img
+                            src={project.image}
+                            alt={project.title}
+                            className="h-full w-full object-cover"
+                            onError={(e) => {
+                                // Fallback to placeholder if image fails to load
+                                e.currentTarget.style.display = 'none';
+                                e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                            }}
+                        />
+                    ) : null}
+                    
+                    {/* Placeholder/Abstract Design - Always present but hidden when image loads */}
+                    <div className={`flex h-full w-full items-center justify-center p-12 ${project.image && project.image !== "/images/will-be-put-soon.jpg" ? 'hidden' : ''}`}>
                         <span className="font-serif text-[10vw] md:text-[6vw] font-black opacity-[0.03] select-none uppercase tracking-tighter">
                             {project.title.split(' ')[0]}
                         </span>

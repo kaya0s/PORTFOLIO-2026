@@ -19,7 +19,7 @@ export default function Hero() {
     return (
         <section
             ref={containerRef}
-            className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-background pt-20"
+            className="relative flex min-h-[100svh] w-full items-center justify-center overflow-hidden bg-background pt-0 md:pt-20"
         >
             <div className="japanese-grid absolute inset-0 opacity-[0.03]" />
 
@@ -34,7 +34,7 @@ export default function Hero() {
                 </span>
             </motion.div>
 
-            <div className="container relative z-10 mx-auto px-8 md:px-16 lg:px-32 flex flex-col md:flex-row items-center justify-between gap-12 md:gap-24">
+            <div className="container relative z-10 mx-auto px-6 sm:px-8 md:px-16 lg:px-32 flex flex-col md:flex-row items-center justify-between gap-10 sm:gap-12 md:gap-24">
 
                 {/* Left Content (Text) */}
                 <motion.div
@@ -47,7 +47,7 @@ export default function Hero() {
                             <span className="text-[10px] font-black uppercase tracking-[0.5em] text-accent">Full Stack Developer</span>
                         </div>
 
-                        <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9] uppercase">
+                        <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.9] uppercase">
                             Creating <br />
                             <span className="text-outline-accent text-transparent">Anything</span> <br />
                             New.
@@ -66,7 +66,7 @@ export default function Hero() {
                     style={{ opacity, scale, y: imgY }}
                     className="relative flex-1 order-1 md:order-2"
                 >
-                    <div className="relative aspect-[4/5] w-full max-w-[450px] mx-auto overflow-hidden border border-foreground/5 bg-foreground/[0.02] collage-mask">
+                    <div className="relative aspect-[4/5] w-full max-w-[360px] sm:max-w-[420px] md:max-w-[450px] mx-auto overflow-hidden border border-foreground/5 bg-foreground/[0.02] collage-mask">
                         {/* Main Profile Photo Placeholder */}
                         <motion.div
                             initial={{ scale: 1.2, opacity: 0 }}
@@ -113,10 +113,12 @@ export default function Hero() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 2 }}
-                className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
+                className="absolute bottom-6 sm:bottom-10 md:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 md:gap-4"
             >
-                <span className="text-[10px] font-bold uppercase tracking-[0.8em] text-foreground/20 italic">Scroll</span>
-                <div className="h-12 w-[1px] bg-gradient-to-b from-accent to-transparent" />
+                <span className="text-[9px] md:text-[10px] font-bold uppercase tracking-[0.7em] md:tracking-[0.8em] text-foreground/20 italic">
+                    Scroll
+                </span>
+                <div className="h-10 sm:h-12 w-[1px] bg-gradient-to-b from-accent to-transparent" />
             </motion.div>
 
         </section>

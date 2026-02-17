@@ -55,7 +55,7 @@ export default function Section({
                     rotateX,
                     perspective: "1200px"
                 }}
-                className="container mx-auto px-8 md:px-16 lg:px-32 relative z-10"
+                className="container mx-auto px-6 sm:px-8 md:px-16 lg:px-32 relative z-10"
             >
                 {(title || subtitle) && (
                     <div className="mb-16 md:mb-24">
@@ -77,7 +77,7 @@ export default function Section({
                                     initial={{ y: "110%", skewY: 10 }}
                                     animate={isInView ? { y: 0, skewY: 0 } : { y: "110%", skewY: 10 }}
                                     transition={{ duration: 1.2, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                                    className="text-6xl font-black md:text-8xl lg:text-9xl tracking-tighter leading-none uppercase"
+                                    className="text-5xl sm:text-6xl font-black md:text-8xl lg:text-9xl tracking-tighter leading-none uppercase"
                                 >
                                     {title}
                                 </motion.h2>

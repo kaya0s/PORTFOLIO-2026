@@ -32,7 +32,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     return (
         <AnimatePresence>
             {project && (
-                <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
+                <div className="fixed inset-0 z-[100] flex items-end md:items-center justify-center p-0 md:p-8">
                     {/* Backdrop */}
                     <motion.div
                         initial={{ opacity: 0 }}
@@ -49,19 +49,23 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                         animate={{ opacity: 1, scale: 1, y: 0 }}
                         exit={{ opacity: 0, scale: 0.9, y: 20 }}
                         transition={{ type: "spring", damping: 25, stiffness: 200 }}
-                        className="relative z-10 w-full max-w-5xl max-h-[85vh] overflow-hidden border border-foreground/5 bg-background shadow-[0_0_100px_rgba(0,0,0,0.2)] my-auto"
+                        className="relative z-10 w-full max-w-5xl max-h-[92svh] md:max-h-[85vh] overflow-hidden border border-foreground/5 bg-background shadow-[0_0_100px_rgba(0,0,0,0.2)] md:my-auto"
                     >
                         {/* Close Button */}
                         <button
                             onClick={onClose}
-                            className="absolute right-6 top-6 z-50 rounded-full bg-background/50 p-3 text-foreground/40 backdrop-blur-md transition-all hover:bg-accent hover:text-background"
+                            className="absolute right-4 top-4 md:right-6 md:top-6 z-50 rounded-full bg-background/50 p-3 text-foreground/40 backdrop-blur-md transition-all hover:bg-accent hover:text-background"
                         >
                             <X size={20} />
                         </button>
 
-                        <div className="flex flex-col md:flex-row h-full max-h-[85vh] overflow-hidden">
+                        <div className="flex flex-col md:flex-row h-full max-h-[92svh] md:max-h-[85vh] overflow-hidden">
                             {/* Visual Side with Conditional Collage */}
-                            <div className="relative w-full md:w-1/2 bg-foreground/[0.02] overflow-hidden border-r border-foreground/5">
+                            <div
+                                className={`relative w-full md:w-1/2 bg-foreground/[0.02] overflow-hidden md:border-r border-foreground/5 ${
+                                    project.image && project.image !== "/images/will-be-put-soon.jpg" ? "" : "hidden md:block"
+                                }`}
+                            >
                                 <div className="absolute inset-0 japanese-grid opacity-10" />
                                 
                                 {project.image && project.image !== "/images/will-be-put-soon.jpg" ? (
@@ -187,7 +191,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                                     </div>
                                 ) : (
                                     /* Clean Layout - No Images */
-                                    <div className="h-full flex flex-col items-center justify-center p-12">
+                                    <div className="h-full flex flex-col items-center justify-center p-10 md:p-12">
                                         <div className="text-center space-y-8">
                                             <span className="font-serif text-[8vw] md:text-6vw font-black opacity-[0.03] select-none uppercase tracking-tighter">
                                                 {project.title.split(' ')[0]}
@@ -208,7 +212,15 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                             </div>
 
                             {/* Info Side */}
-                            <div className="w-full md:w-1/2 overflow-y-auto p-8 md:p-16 custom-scrollbar">
+                            <div className="w-full md:w-1/2 overflow-y-auto p-6 sm:p-8 md:p-16 custom-scrollbar">
+                                {(!project.image || project.image === "/images/will-be-put-soon.jpg") && (
+                                    <div className="mb-10 md:hidden">
+                                        <span className="text-[9px] font-black uppercase tracking-[0.5em] text-foreground/30">
+                                            Trajectory 0{project.id}
+                                        </span>
+                                        <div className="mt-4 h-px w-full bg-foreground/5" />
+                                    </div>
+                                )}
                                 <div className="mb-12">
                                     <div className="flex items-center gap-4 mb-6">
                                         <span className="text-[10px] font-black uppercase tracking-[0.4em] text-accent">

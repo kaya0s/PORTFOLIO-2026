@@ -62,8 +62,25 @@ export default function ProjectCard({ project, onClick, className }: ProjectCard
                 <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
             </div>
 
-            {/* Overlay Content - Always visible but shifts on hover */}
-            <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 md:p-10 pointer-events-none">
+            {/* Mobile Overlay (minimal) */}
+            <div className="absolute inset-0 z-20 flex flex-col justify-end p-6 pointer-events-none md:hidden">
+                <div className="space-y-4">
+                    <div className="flex items-center gap-3">
+                        <span className="text-[9px] font-black tracking-widest text-foreground/20">/ 0{project.id}</span>
+                        <div className="h-px flex-1 bg-foreground/5" />
+                    </div>
+                    <h3 className="text-3xl font-black tracking-tighter leading-none uppercase">
+                        {project.title}
+                    </h3>
+                    <div className="inline-flex items-center gap-2">
+                        <span className="text-[10px] font-black uppercase tracking-[0.4em] text-accent">Review</span>
+                        <ArrowUpRight size={18} className="text-accent" />
+                    </div>
+                </div>
+            </div>
+
+            {/* Overlay Content - Desktop */}
+            <div className="absolute inset-0 z-20 hidden md:flex flex-col justify-end p-10 pointer-events-none">
                 <motion.div
                     variants={{
                         initial: { y: 0 },
@@ -111,7 +128,7 @@ export default function ProjectCard({ project, onClick, className }: ProjectCard
             </div>
 
             {/* Decorative Index */}
-            <div className="absolute top-6 left-6 z-10">
+            <div className="absolute top-6 left-6 z-10 hidden md:block">
                 <span className="text-[9px] font-black tracking-widest text-foreground/10">/ 0{project.id}</span>
             </div>
         </motion.div>

@@ -70,7 +70,7 @@ export default function Projects() {
                         <ProjectCard
                             project={projects[0]}
                             onClick={() => setSelectedProject(projects[0])}
-                            className="h-[400px] md:h-[701px]"
+                            className="h-[320px] sm:h-[380px] md:h-[701px]"
                         />
                     </div>
 
@@ -79,7 +79,7 @@ export default function Projects() {
                         <ProjectCard
                             project={projects[1]}
                             onClick={() => setSelectedProject(projects[1])}
-                            className="h-[300px] md:h-[350px]"
+                            className="h-[220px] sm:h-[260px] md:h-[350px]"
                         />
                     </div>
 
@@ -88,7 +88,7 @@ export default function Projects() {
                         <ProjectCard
                             project={projects[2]}
                             onClick={() => setSelectedProject(projects[2])}
-                            className="h-[300px] md:h-[350px]"
+                            className="h-[220px] sm:h-[260px] md:h-[350px]"
                         />
                     </div>
 
@@ -97,7 +97,7 @@ export default function Projects() {
                         <ProjectCard
                             project={projects[3]}
                             onClick={() => setSelectedProject(projects[3])}
-                            className="h-[250px] md:h-[300px]"
+                            className="h-[210px] sm:h-[240px] md:h-[300px]"
                         />
                     </div>
 
@@ -106,7 +106,7 @@ export default function Projects() {
                         <ProjectCard
                             project={projects[4]}
                             onClick={() => setSelectedProject(projects[4])}
-                            className="h-[250px] md:h-[300px]"
+                            className="h-[210px] sm:h-[240px] md:h-[300px]"
                         />
                     </div>
                 </div>

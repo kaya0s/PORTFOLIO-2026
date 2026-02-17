@@ -57,7 +57,7 @@ export default function Navbar() {
                     />
                 </div>
 
-                <div className="mt-8 flex items-center glass px-8 py-3 gap-10">
+                <div className="mt-4 md:mt-8 flex items-center glass px-4 sm:px-5 md:px-8 py-2 md:py-3 gap-6 md:gap-10">
                     <div className="hidden md:flex items-center gap-10">
                         {navItems.map((item) => (
                             <a
@@ -77,14 +77,16 @@ export default function Navbar() {
                         className="text-foreground/50 transition-all hover:text-foreground hover:scale-110 p-1"
                         aria-label="Toggle theme"
                     >
-                        {mounted && (theme === "dark" ? <Sun size={16} strokeWidth={2} /> : <Moon size={16} strokeWidth={2} />)}
+                        {mounted && (theme === "dark" ? <Sun size={14} className="md:hidden" strokeWidth={2} /> : <Moon size={14} className="md:hidden" strokeWidth={2} />)}
+                        {mounted && (theme === "dark" ? <Sun size={16} className="hidden md:block" strokeWidth={2} /> : <Moon size={16} className="hidden md:block" strokeWidth={2} />)}
                     </button>
 
                     <button
-                        className="md:hidden text-foreground/60 p-2 hover:text-foreground transition-colors"
+                        className="md:hidden text-foreground/60 p-1.5 hover:text-foreground transition-colors"
                         onClick={() => setMobileMenuOpen(true)}
+                        aria-label="Open menu"
                     >
-                        <Menu size={20} />
+                        <Menu size={18} />
                     </button>
                 </div>
             </motion.nav>
@@ -98,10 +100,10 @@ export default function Navbar() {
                     closed: { x: "100%" },
                 }}
                 transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-                className="fixed inset-0 z-[60] bg-background md:hidden"
+                className="fixed inset-0 z-[60] bg-background md:hidden overflow-y-auto"
             >
-                <div className="flex flex-col h-full p-12">
-                    <div className="flex justify-end items-center mb-24">
+                <div className="flex flex-col min-h-full p-8 sm:p-10">
+                    <div className="flex justify-end items-center mb-14 sm:mb-20">
                         <button 
                             onClick={() => setMobileMenuOpen(false)}
                             className="text-foreground/60 hover:text-foreground transition-colors p-2"
@@ -109,7 +111,7 @@ export default function Navbar() {
                             <X size={28} strokeWidth={1.5} />
                         </button>
                     </div>
-                    <div className="flex flex-col gap-16">
+                    <div className="flex flex-col gap-10 sm:gap-14">
                         {navItems.map((item, idx) => (
                             <motion.a
                                 key={item.name}
@@ -118,7 +120,7 @@ export default function Navbar() {
                                 animate={mobileMenuOpen ? { opacity: 1, x: 0 } : {}}
                                 transition={{ delay: 0.2 + idx * 0.1 }}
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="text-5xl font-black tracking-tighter text-foreground/80 hover:text-foreground transition-colors"
+                                className="text-4xl sm:text-5xl font-black tracking-tighter text-foreground/80 hover:text-foreground transition-colors"
                             >
                                 {item.name}
                             </motion.a>

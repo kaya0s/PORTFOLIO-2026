@@ -57,34 +57,34 @@ export default function Navbar() {
                     />
                 </div>
 
-                <div className="mt-8 flex items-center glass rounded-full px-6 py-2 gap-8">
-                    <div className="hidden md:flex items-center gap-8">
+                <div className="mt-8 flex items-center glass px-8 py-3 gap-10">
+                    <div className="hidden md:flex items-center gap-10">
                         {navItems.map((item) => (
                             <a
                                 key={item.name}
                                 href={item.href}
-                                className="text-[9px] font-bold uppercase tracking-[0.3em] text-foreground/40 transition-all hover:text-foreground hover:tracking-[0.4em]"
+                                className="text-[10px] font-black uppercase tracking-[0.4em] text-foreground/50 transition-all hover:text-foreground hover:tracking-[0.5em] hover:scale-105"
                             >
                                 {item.name}
                             </a>
                         ))}
                     </div>
 
-                    <div className="h-3 w-[1px] bg-foreground/10 hidden md:block" />
+                    <div className="h-4 w-px bg-foreground/20 hidden md:block" />
 
                     <button
                         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                        className="text-foreground/40 transition-colors hover:text-foreground"
+                        className="text-foreground/50 transition-all hover:text-foreground hover:scale-110 p-1"
                         aria-label="Toggle theme"
                     >
-                        {mounted && (theme === "dark" ? <Sun size={14} strokeWidth={2.5} /> : <Moon size={14} strokeWidth={2.5} />)}
+                        {mounted && (theme === "dark" ? <Sun size={16} strokeWidth={2} /> : <Moon size={16} strokeWidth={2} />)}
                     </button>
 
                     <button
-                        className="md:hidden text-foreground/60 p-1"
+                        className="md:hidden text-foreground/60 p-2 hover:text-foreground transition-colors"
                         onClick={() => setMobileMenuOpen(true)}
                     >
-                        <Menu size={18} />
+                        <Menu size={20} />
                     </button>
                 </div>
             </motion.nav>
@@ -102,11 +102,14 @@ export default function Navbar() {
             >
                 <div className="flex flex-col h-full p-12">
                     <div className="flex justify-end items-center mb-24">
-                        <button onClick={() => setMobileMenuOpen(false)}>
-                            <X size={32} strokeWidth={1} />
+                        <button 
+                            onClick={() => setMobileMenuOpen(false)}
+                            className="text-foreground/60 hover:text-foreground transition-colors p-2"
+                        >
+                            <X size={28} strokeWidth={1.5} />
                         </button>
                     </div>
-                    <div className="flex flex-col gap-12">
+                    <div className="flex flex-col gap-16">
                         {navItems.map((item, idx) => (
                             <motion.a
                                 key={item.name}
@@ -115,7 +118,7 @@ export default function Navbar() {
                                 animate={mobileMenuOpen ? { opacity: 1, x: 0 } : {}}
                                 transition={{ delay: 0.2 + idx * 0.1 }}
                                 onClick={() => setMobileMenuOpen(false)}
-                                className="text-4xl font-bold tracking-tighter"
+                                className="text-5xl font-black tracking-tighter text-foreground/80 hover:text-foreground transition-colors"
                             >
                                 {item.name}
                             </motion.a>
@@ -124,11 +127,11 @@ export default function Navbar() {
                     <div className="mt-auto flex justify-between items-end">
                         <button
                             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                            className="text-foreground/60 p-4 border border-foreground/10 rounded-full"
+                            className="text-foreground/50 hover:text-foreground transition-colors p-3 border border-foreground/10"
                         >
                             {mounted && (theme === "dark" ? <Sun size={24} /> : <Moon size={24} />)}
                         </button>
-                        <span className="text-[10px] font-bold uppercase tracking-[0.5em] text-foreground/20">© 2026</span>
+                        <span className="text-[10px] font-black uppercase tracking-[0.5em] text-foreground/20">© 2026</span>
                     </div>
                 </div>
             </motion.div>

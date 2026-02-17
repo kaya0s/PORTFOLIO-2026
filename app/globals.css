@@ -77,6 +77,29 @@
     filter: contrast(170%) brightness(1000%);
   }
 
+  /* iOS Safari tends to render backdrop-filter + heavy filtered noise with
+     visible tint/gradient shifts vs desktop/DevTools.
+     This keeps desktop unchanged while making mobile/iOS more consistent. */
+  @supports (-webkit-touch-callout: none) {
+    .glass {
+      background-color: color-mix(in oklab, var(--background) 88%, transparent);
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+    }
+
+    .noise {
+      opacity: 0.025;
+      filter: none;
+    }
+  }
+
+  @media (hover: none) and (pointer: coarse) {
+    .noise {
+      opacity: 0.025;
+      filter: none;
+    }
+  }
+
   .text-outline-accent {
     -webkit-text-stroke: 1px var(--color-accent);
   }
